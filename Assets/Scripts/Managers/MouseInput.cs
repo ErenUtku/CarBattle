@@ -6,6 +6,8 @@ public class MouseInput : MonoBehaviour
 {
     [SerializeField] GasPedal gasPedal;
 
+    [SerializeField] 
+
     private void Awake()
     {
         Time.timeScale = 0;
@@ -15,6 +17,14 @@ public class MouseInput : MonoBehaviour
     {
         Time.timeScale = 1;
         ScreensManager.instance.ChangeScreen(Screens.GAME);
-        gasPedal.gameIsOn = true;
+        StartCoroutine(StartTheGame());
     }
+
+    IEnumerator StartTheGame()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gasPedal.gameIsOn = true;
+
+    }
+   
 }
