@@ -39,12 +39,6 @@ public class IdleManager : MonoBehaviour
     [HideInInspector]
     public int AILevel;
 
-    [SerializeField] PlayerController player;
-
-    [SerializeField] AICarController AI;
-
-    [SerializeField] GasPedal Gp;
-
     [HideInInspector]
     public int AImotorForce;
 
@@ -57,9 +51,14 @@ public class IdleManager : MonoBehaviour
     [HideInInspector]
     public int AItotalGearUp;
 
+    [SerializeField] PlayerController player;
+
+    [SerializeField] AICarController AI;
+
+    [SerializeField] GasPedal Gp;
+
     [SerializeField] TextMeshPro LevelText;
     
-
     private int[] costs = new int[]
   {
         120,
@@ -87,6 +86,7 @@ public class IdleManager : MonoBehaviour
 
   };
 
+    /*--------------------------------------------------------------------*/
 
     public static IdleManager instance;
     private void Awake()
@@ -124,10 +124,7 @@ public class IdleManager : MonoBehaviour
 
     }
 
-    public void RestartGame()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+    /*--------------------------------------------------------------------*/
 
     public void BuyEnginePower()
     {
@@ -185,7 +182,6 @@ public class IdleManager : MonoBehaviour
         wallet += totalGain;
         PlayerPrefs.SetInt("Wallet", wallet);
         SceneManager.LoadScene(0);
-        //ScreensManager.instance.ChangeScreen(Screens.MAIN);
     }
 
     public void AIUpdate()
@@ -203,6 +199,11 @@ public class IdleManager : MonoBehaviour
         PlayerPrefs.SetInt("AITotalGearUp", AItotalGearUp);
 
         AI.UpdateTheAI();
+    }
+
+    public void RestartGame()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
 }

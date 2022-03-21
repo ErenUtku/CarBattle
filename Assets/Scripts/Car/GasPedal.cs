@@ -12,15 +12,20 @@ public class GasPedal : MonoBehaviour
     
     private float counter;
 
+    private float breakCounter;
+
+
     private bool startCountDown;
 
-    private float breakCounter;
+    public bool gameIsOn;
+
 
     public float gasPedalSpeed;
 
     public float gearUpTime;
 
-    public bool gameIsOn;
+
+    /*--------------------------------------------------------------------*/
 
     private void Awake()
     {
@@ -32,7 +37,6 @@ public class GasPedal : MonoBehaviour
         counter = 0;
         breakCounter = 0;
     }
-
 
     private void Update()
     {
@@ -99,6 +103,8 @@ public class GasPedal : MonoBehaviour
         }
 
     }
+
+    /*--------------------------------------------------------------------*/
 
     IEnumerator GasPedalDown(float gas)
     {

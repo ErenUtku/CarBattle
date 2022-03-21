@@ -8,12 +8,14 @@ public class PlayerController : CarController
     public int bodyWeight;
     public int gearUp;
 
+    /*--------------------------------------------------------------------*/
 
     private void Awake()
     {
         UpdateCar();
     }
 
+    /*--------------------------------------------------------------------*/
 
     public void UpdateCar()
     {

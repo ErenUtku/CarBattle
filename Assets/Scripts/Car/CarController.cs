@@ -22,8 +22,6 @@ public abstract class CarController : MonoBehaviour
     [SerializeField] private Transform rearRightWheelTransform;
     #endregion
     
-
-
     /*--------------------------------------------------------------------*/
 
     private void Start()

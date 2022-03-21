@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class ScreensManager : MonoBehaviour
 {
-    public static ScreensManager instance;
-
     private GameObject currentSceen;
 
+    [Header("UI Attributes")]
     public GameObject mainScreen;
     public GameObject gameScreen;
     public GameObject endScreen;
@@ -34,13 +33,16 @@ public class ScreensManager : MonoBehaviour
 
     private int gameCount;
 
+    [Header("Outside Attributes")]
     [SerializeField] public GameObject gearUpSign;
 
     [SerializeField] public Slider counterSlider;
 
     [SerializeField] public GameObject carBrokenSign;
-    
 
+    /*--------------------------------------------------------------------*/
+
+    public static ScreensManager instance;
     private void Awake()
     {
         if (ScreensManager.instance)
@@ -56,7 +58,9 @@ public class ScreensManager : MonoBehaviour
     {
         CheckIdles();
         UpdateTexts();
-    }   
+    }
+
+    /*--------------------------------------------------------------------*/
 
     public void ChangeScreen(Screens screen)
     {
@@ -98,8 +102,7 @@ public class ScreensManager : MonoBehaviour
         endScreenLoseMoney.text = "$" + IdleManager.instance.totalGain;
     }
     
-
-        public void CheckIdles()
+    public void CheckIdles()
     {
         int enginePowerCost = IdleManager.instance.enginePowerCost;
         int bodyWeightCost = IdleManager.instance.bodyWeightCost;

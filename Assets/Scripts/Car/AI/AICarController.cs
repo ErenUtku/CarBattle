@@ -11,6 +11,8 @@ public class AICarController : CarController
     
     [SerializeField] public GameObject[] AIBody;
 
+    /*--------------------------------------------------------------------*/
+
     private void Awake()
     {        
         UpdateTheAI();
@@ -40,6 +42,8 @@ public class AICarController : CarController
             AddForceToAI();
         }
     }
+
+    /*--------------------------------------------------------------------*/
 
     public void AddForceToAI()
     {
